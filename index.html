@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Bài 1</p>
+    <input type="number" id="inputOfTask1" oninput="task1()">
+    <pre id="outputOfTask1"></pre>
+
+    <p>Bài 2</p>
+    <input type="number" id="inputOfTask2" oninput="task2()">
+    <pre id="output1OfTask2"></pre>
+    <pre id="output2OfTask2"></pre>
+
+    <p>Bài 3</p>
+    <input type="number" id="inputOfTask3" oninput="task3()">
+    <pre id="outputOfTask3"></pre>
+
+    <script>
+        //Bài 1
+        function task1() {
+            let n = getNumberOfTask1()
+            let square = squareNumber(n)
+            document.getElementById("outputOfTask1").innerHTML = square
+        }
+        function getNumberOfTask1() {
+            return getValue("inputOfTask1")
+        }
+        function getValue(id) {
+            return document.getElementById(id).value
+        }
+        function squareNumber(val) {
+            return Math.pow(val, 2)
+        }
+
+        //Bài 2
+        function task2() {
+            let banKinh = getRadius()
+            let chuVi = chuViHinhTron(banKinh)
+            let dienTich = dienTichHinhTron(banKinh)
+            document.getElementById("output1OfTask2").innerHTML = `Chu vi hình tròn: ${chuVi}`
+            document.getElementById("output2OfTask2").innerHTML = `Diện tích hình tròn: ${dienTich}`
+        }
+        function getRadius() {
+            return getValue("inputOfTask2")
+        }
+        function chuViHinhTron(val) {
+            return 2 * val * Math.PI
+        }
+        function dienTichHinhTron(val) {
+            return Math.pow(val, 2) * Math.PI
+        }
+
+        //Bài 3
+        function task3() {
+            let n = getNumberOfTask3()
+            let giaiThua = tinhGiaiThua(n)
+            document.getElementById("outputOfTask3").innerHTML = giaiThua
+        }
+        function getNumberOfTask3() {
+            return getValue("inputOfTask3")
+        }
+        function tinhGiaiThua(val) {
+            let factorial = 1
+            for (i = 2; i <= val; i++) {
+                factorial *= i
+            }
+            return factorial
+        }
+    </script>
+</body>
+
+</html>
